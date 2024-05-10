@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Liste des contacts
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let contact of contacts">
+      <ion-label>
+        <h2>{{ contact.name }}</h2>
+        <p>{{ contact.phoneNumber }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editContact(contact)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="removeContact(contact)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label position="stacked">Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="newContactName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Numéro de téléphone</ion-label>
+    <ion-input type="tel" [(ngModel)]="newContactPhoneNumber"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="addContact()">Ajouter</ion-button>
 </ion-content>
