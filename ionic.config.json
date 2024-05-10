@@ -1,0 +1,7 @@
+{
+  "name": "Tpionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
