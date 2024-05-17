@@ -1,36 +1,62 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Liste des contacts
-    </ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <nav id="nav">
+    <h1 id="title">Contact</h1>
+    <input
+      type="button"
+      class="btn"
+      id="addbtn"
+      value="+"
+      (click)="ajouterContact()"
+    />
+  </nav>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let contact of contacts">
-      <ion-label>
-        <h2>{{ contact.name }}</h2>
-        <p>{{ contact.phoneNumber }}</p>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button (click)="editContact(contact)">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>
-        <ion-button (click)="removeContact(contact)">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-  </ion-list>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contact</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-item>
-    <ion-label position="stacked">Nom</ion-label>
-    <ion-input type="text" [(ngModel)]="newContactName"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Numéro de téléphone</ion-label>
-    <ion-input type="tel" [(ngModel)]="newContactPhoneNumber"></ion-input>
-  </ion-item>
-  <ion-button expand="block" (click)="addContact()">Ajouter</ion-button>
+  <div id="container">
+    <div class="cart" *ngFor="let contact of contacts">
+      <img
+        src="../../assets/images/utilisateur (1).png"
+        class="ContactImage"
+        alt=""
+      />
+      <div class="UserInfo">
+        <div class="Nom">
+          <h6>Nom</h6>
+          <p id="Nom">{{ contact.nom }}</p>
+        </div>
+        <div class="Classe">
+          <h6>Classe</h6>
+          <p id="Classe">{{ contact.classe }}</p>
+        </div>
+        <div class="Telephone">
+          <h6>Telephone</h6>
+          <p id="Telephone">{{ contact.numeroTelephone }}</p>
+        </div>
+      </div>
+      <div id="btncont">
+        <button
+          type="button"
+          class="btn"
+          id="closebtn"
+          (click)="supprimer(contact.id)"
+        >
+          <img src="../../assets/images/fermer.png" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          id="modifbtn"
+          (click)="modifier(contact.id)"
+        >
+          <img src="../../assets/images/stylo.png" />
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

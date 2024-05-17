@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Creer un Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">create-contact</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <img
+      src="../../assets/images/utilisateur (1).png"
+      class="ContactImage"
+      alt=""
+    />
+    <ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input
+            label="Nom"
+            labelPlacement="floating"
+            [counter]="true"
+            id="Nom"
+            [(ngModel)]="Nom"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Classe"
+            labelPlacement="floating"
+            [counter]="true"
+            id="Classe"
+            [(ngModel)]="Class"
+            required
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Telephone"
+            labelPlacement="floating"
+            [counter]="true"
+            id="Tel"
+            type="tel"
+            [(ngModel)]="Tel"
+            required
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+    <ion-button expand="round" (click)="addUser()" class="btn" color="medium" style="font-size: 10px;width: 30%;margin-right: 35%;margin-left: 35%;">Enregistrer</ion-button
+    >
+  </ion-content>
+</ion-content>

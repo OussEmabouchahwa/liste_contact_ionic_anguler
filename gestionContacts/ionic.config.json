@@ -1,0 +1,7 @@
+{
+  "name": "gestionContacts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
